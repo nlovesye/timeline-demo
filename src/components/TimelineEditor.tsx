@@ -297,6 +297,21 @@ const TimelineEditor: FC = () => {
 
     return (
         <>
+            <div className="mb-6">
+                {mockTracks.map((track) => (
+                    <div
+                        className="w-[200px] h-[200px] bg-[#00bfff]"
+                        key={track.id}
+                        draggable
+                        onDragStart={(e) =>
+                            handleDragStart(e, null, track.segments[0])
+                        }
+                    >
+                        New Segment
+                    </div>
+                ))}
+            </div>
+
             <div
                 className="w-full border border-gray-300 py-[10px]"
                 onDrop={(e) => handleDrop(e)}
@@ -313,21 +328,6 @@ const TimelineEditor: FC = () => {
                                 renderSegment(segment, track)
                             )}
                         </div>
-                    </div>
-                ))}
-            </div>
-
-            <div className="mt-6">
-                {mockTracks.map((track) => (
-                    <div
-                        className="w-[200px] h-[200px] bg-[#00bfff]"
-                        key={track.id}
-                        draggable
-                        onDragStart={(e) =>
-                            handleDragStart(e, null, track.segments[0])
-                        }
-                    >
-                        New Segment
                     </div>
                 ))}
             </div>
